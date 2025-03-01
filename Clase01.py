@@ -45,8 +45,8 @@ class Carro(Vehiculo):
         self.tipo = "Carro"  
 
 
-moto = Moto("Yamaha", 20)
-carro = Carro("Toyota", 30)
+moto = Moto("Yamaha", 4)
+carro = Carro("Toyota",4)
 
 print(moto)
 print(carro)

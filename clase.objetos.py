@@ -1,43 +1,60 @@
 class Vehiculo:
-    color: str
-    modelo: int
-    cilindraje: int
-    numero_ruedas: int
-    combustible: int
-    marca: str
-
-    def __init__(self, marca: str, modelo: int, combustible: int) -> None:
+    def __init__(self, marca, combustible):
         self.marca = marca
-        self.modelo = modelo
         self.combustible = combustible
-
+        self.tipo = None  
+    
     def __str__(self):
-        return f"La marca del vehiculo es {self.marca} y el nivel de combustible es de {self.combustible}"
+        return f"Marca: {self.marca}, Combustible: {self.combustible:.2f}, Tipo: {self.tipo}"
 
     def encender(self):
-        pass
+        if self.combustible < 10:
+            print("Advertencia: Necesitas ir a la gasolinera. Nivel de combustible bajo.")
+        else:
+            print(f"El vehículo {self.marca} está encendido.")
 
-    def acelerar(self):
-        pass
+    def arrancar(self):
+        if self.combustible <= 0:
+            print("El vehículo no puede arrancar, no hay combustible.")
+        else:
+            print(f"El vehículo {self.marca} ha arrancado.")
 
-    def frenar(self):
-        pass
+    def marcha(self, km):
+        consumo_por_km = 0.1  
+        consumo_total = km * consumo_por_km
+        self.combustible -= consumo_total
+        
+        if self.combustible < 0:
+            self.combustible = 0
+        
+        print(f"El vehículo {self.marca} ha recorrido {km} km. Combustible restante: {self.combustible:.2f} galones.")
+        
+        if self.combustible < 10 and self.combustible > 0:
+            print("Advertencia: Nivel de combustible bajo. Necesitas ir a la gasolinera.")
 
-    def apagar(self):
-        pass
+        if self.combustible == 0:
+            print(f"El vehículo {self.marca} se ha detenido debido a que el combustible se agotó.")
 
 class Moto(Vehiculo):
-    pass
+    def __init__(self, marca, combustible):
+        super().__init__(marca, combustible)
+        self.tipo = "Moto"  
+
 class Carro(Vehiculo):
-    pass
+    def __init__(self, marca, combustible):
+        super().__init__(marca, combustible)
+        self.tipo = "Carro"  
 
-vehiculo1 = Vehiculo('Mazda', 2023, 80)
+moto = Moto("Yamaha", 9)
+carro = Carro("Toyota", 11)
 
-print(vehiculo1)
+print(moto)
+print(carro)
 
-moto1 = Moto ('Honda', 50)
+moto.encender()
+carro.encender()
+moto.arrancar()
+carro.arrancar()
 
-print (moto1)
-
-carro1 = Carro ("Renault", 80)
-print = (carro1)
+moto.marcha(50)  
+carro.marcha(100)  
