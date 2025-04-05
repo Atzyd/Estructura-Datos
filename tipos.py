@@ -26,5 +26,5 @@ while True:
         print(numeros)
     elif seleccion == 0:
         break
-
+ho
 print(numeros)
