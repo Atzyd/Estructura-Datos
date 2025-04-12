@@ -1,13 +1,13 @@
 def resolver_laberinto(laberinto, inicio, salida):
     filas, columnas = len(laberinto), len(laberinto[0])
-    pila = [inicio]  # Guardamos el camino
+    pila = [inicio]  
     visitado = set()
 
     while pila:
-        x, y = pila[-1]  # Última posición en la pila
+        x, y = pila[-1] 
 
         if (x, y) == salida:
-            return pila  # Ruta encontrada
+            return pila  
 
         visitado.add((x, y))
 
@@ -21,14 +21,14 @@ def resolver_laberinto(laberinto, inicio, salida):
             if 0 <= nx < filas and 0 <= ny < columnas and laberinto[nx][ny] != 'X' and (nx, ny) not in visitado:
                 pila.append((nx, ny))
                 movido = True
-                break  # Solo tomamos un movimiento válido
+                break  
 
-        if not movido:  # Retrocedemos si no hay opciones
+        if not movido:  
             pila.pop()
 
-    return None  # No hay solución
+    return None  
 
-# Laberinto de prueba (S = inicio, E = salida, X = obstáculo, O = libre)
+ (S = inicio, E = salida, X = obstáculo, O = libre)
 laberinto = [
     ['S', 'O', 'X', 'X', 'O'],
     ['X', 'O', 'O', 'X', 'O'],
@@ -50,12 +50,12 @@ def verificar_balanceo(expresion):
 
     for simbolo in expresion:
         if simbolo in '({[':
-            pila.append(simbolo)  # Agregar a la pila
+            pila.append(simbolo)  
         elif simbolo in ')}]':
             if not pila or pila.pop() != pares[simbolo]:
-                return False  # No está balanceado
+                return False  
 
-    return not pila  # Debe estar vacía para ser balanceado
+    return not pila  
 
 expresiones = ["{[()()]}", "[(])", "{(a+b) * [c/d]}", "[{()}]", "{(a+b]}"]
 for expr in expresiones:
