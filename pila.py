@@ -1,27 +1,26 @@
 class Pila:
     def _init_(self):
-        self.lista = []  # Crear una lista vacía
-
+        self.lista = []  
     def apilar(self, elemento):
-        self.lista.append(elemento)  # Agregar elemento a la pila
+        self.lista.append(elemento) 
 
     def desapilar(self):
-        if len(self.lista) == 0:  # Verificar si la pila está vacía
+        if len(self.lista) == 0:  
             print("No se puede desapilar, la pila está vacía.")
             return None
-        return self.lista.pop()  # Quitar y devolver el último elemento
+        return self.lista.pop()  
 
     def ver_tope(self):
         if len(self.lista) == 0:
             print("La pila está vacía.")
             return None
-        return self.lista[-1]  # Mostrar el último elemento sin quitarlo
+        return self.lista[-1]  
 
     def esta_vacia(self):
-        return len(self.lista) == 0  # Retorna True si está vacía, False si no
+        return len(self.lista) == 0  
 
     def tamaño(self):
-        return len(self.lista)  # Retorna la cantidad de elementos
+        return len(self.lista)  
 
 pila = Pila()
 
@@ -30,10 +29,10 @@ pila.apilar(1)
 pila.apilar(2)
 pila.apilar(3)
 
-print("Tope actual:", pila.ver_tope())  # 3
-print("Desapilando:", pila.desapilar())  # 3
-print("Nuevo tope:", pila.ver_tope())  # 2
-print("Tamaño de la pila:", pila.tamaño())  # 2
+print("Tope actual:", pila.ver_tope())  
+print("Desapilando:", pila.desapilar()) 
+print("Nuevo tope:", pila.ver_tope())  
+print("Tamaño de la pila:", pila.tamaño())  
 
 print("Vaciando la pila...")
 pila.desapilar()
