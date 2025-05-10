@@ -10,3 +10,8 @@ Python para análisis con pila
 
 IA: OpenAI GPT o LLaMA para explicación
 
+Verificas si la cima de la pila es el símbolo de apertura correspondiente.
+
+Si coincide, haces un pop (sacas ese símbolo de la pila).
+
+Si no coincide (o la pila está vacía), hay un error de estructura.
